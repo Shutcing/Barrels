@@ -1,0 +1,540 @@
+function Board.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push constant 39
+pop this 2
+push this 2
+call Array.new 1
+pop this 0
+push constant 0
+push this 0
+add
+push constant 5
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 0
+add
+push constant 55
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 0
+add
+push constant 105
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 0
+add
+push constant 155
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 0
+add
+push constant 205
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 0
+add
+push constant 255
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 0
+add
+push constant 305
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 0
+add
+push constant 355
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 0
+add
+push constant 405
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 0
+add
+push constant 455
+push constant 240
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 0
+add
+push constant 5
+push constant 180
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 0
+add
+push constant 55
+push constant 180
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push this 0
+add
+push constant 105
+push constant 185
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push this 0
+add
+push constant 155
+push constant 185
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push this 0
+add
+push constant 205
+push constant 185
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push this 0
+add
+push constant 255
+push constant 185
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 16
+push this 0
+add
+push constant 305
+push constant 185
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 17
+push this 0
+add
+push constant 355
+push constant 190
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 18
+push this 0
+add
+push constant 405
+push constant 190
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 19
+push this 0
+add
+push constant 55
+push constant 135
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 20
+push this 0
+add
+push constant 105
+push constant 135
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 21
+push this 0
+add
+push constant 155
+push constant 135
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 22
+push this 0
+add
+push constant 205
+push constant 130
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 23
+push this 0
+add
+push constant 255
+push constant 130
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 24
+push this 0
+add
+push constant 305
+push constant 130
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 25
+push this 0
+add
+push constant 355
+push constant 127
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 26
+push this 0
+add
+push constant 405
+push constant 127
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 27
+push this 0
+add
+push constant 455
+push constant 127
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 28
+push this 0
+add
+push constant 5
+push constant 75
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 29
+push this 0
+add
+push constant 55
+push constant 75
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 30
+push this 0
+add
+push constant 105
+push constant 75
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 31
+push this 0
+add
+push constant 155
+push constant 80
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 32
+push this 0
+add
+push constant 205
+push constant 80
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 33
+push this 0
+add
+push constant 255
+push constant 80
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 34
+push this 0
+add
+push constant 305
+push constant 83
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 35
+push this 0
+add
+push constant 355
+push constant 83
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 36
+push this 0
+add
+push constant 405
+push constant 83
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 37
+push this 0
+add
+push constant 155
+push constant 30
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 38
+push this 0
+add
+push constant 205
+push constant 30
+call Break.new 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+pop this 3
+push this 3
+call Array.new 1
+pop this 1
+push constant 0
+push this 1
+add
+push constant 410
+push constant 430
+push constant 240
+push constant 200
+push constant 210
+push constant 230
+call Ladder.new 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 1
+add
+push constant 55
+push constant 75
+push constant 180
+push constant 150
+push constant 160
+push constant 170
+call Ladder.new 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 1
+add
+push constant 410
+push constant 430
+push constant 127
+push constant 98
+push constant 117
+push constant 107
+call Ladder.new 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 1
+add
+push constant 135
+push constant 155
+push constant 75
+push constant 30
+push constant 65
+push constant 45
+call Ladder.new 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 1
+add
+push constant 255
+push constant 275
+push constant 80
+push constant 30
+push constant 65
+push constant 45
+call Ladder.new 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+return
+function Board.drawWall 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push this 2
+push local 0
+gt
+not
+if-goto WHILE_END0
+push local 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Break.drawBreak 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Board.drawLadders 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label WHILE_EXP0
+push this 3
+push local 0
+gt
+not
+if-goto WHILE_END0
+push local 0
+push this 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Ladder.drawLadder 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Board.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

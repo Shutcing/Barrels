@@ -1,0 +1,19 @@
+function Main.main 2
+call Board.new 0
+pop local 0
+call Cherry.new 0
+pop local 1
+push local 1
+call Cherry.drawCherry 1
+pop temp 0
+push local 0
+call Board.drawWall 1
+pop temp 0
+push local 0
+call Board.drawLadders 1
+pop temp 0
+push local 0
+call Board.dispose 1
+pop temp 0
+push constant 0
+return

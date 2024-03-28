@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/09/HelloWorld/Main.jack
+
+/** Hello World program. */
+class Main {
+   function void main() {
+      /* Prints some text using the standard library. */
+      var Board wall;
+      var Cherry cherry;
+      let wall = Board.new();
+      let cherry = Cherry.new();
+      do cherry.drawCherry();
+      do wall.drawWall(); 
+      do wall.drawLadders();
+      do wall.dispose();    // New line
+      return;
+   }
+}

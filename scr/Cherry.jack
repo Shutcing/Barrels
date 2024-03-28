@@ -1,0 +1,28 @@
+class Cherry
+{
+    field int x;
+    field int y;
+    field int x1;
+    field int y1;
+    field int radius;
+
+    constructor Cherry new(){
+        let x = 170;
+        let y = 23;
+        let radius = 7;
+        let x1 = 182;
+        let y1 = 23;
+        return this;
+        }
+
+        method void drawCherry()
+        {
+            do Screen.setColor(true);
+            do Screen.drawCircle(x,y,radius);
+            do Screen.drawCircle(x1,y1,radius);
+            do Screen.drawLine(172,16,175,10);
+            do Screen.drawLine(175,10,183,16);
+            //do Screen.drawRectangle(172,16,185,10);
+            return;
+            }
+}
