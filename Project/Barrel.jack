@@ -1,0 +1,147 @@
+class Barrel{
+    field int location;
+    field int orient;
+
+    constructor Barrel new(int loc){
+        let location = loc;
+        let orient = 1;
+        do draw(loc);
+        return this;
+    }
+
+    method void setLocation(int loc){
+        let location = loc;
+        return;
+    }
+
+    method int getLocation(){
+        return location;
+    }
+
+    method void draw(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        // column 0
+        do Memory.poke(memAddress, 8128);
+        do Memory.poke(memAddress +32, 16352);
+        do Memory.poke(memAddress +64, -8);
+        do Memory.poke(memAddress +96, -4);
+        do Memory.poke(memAddress +128, -4);
+        do Memory.poke(memAddress +160, -2);
+        do Memory.poke(memAddress +192, -2);
+        do Memory.poke(memAddress +224, -1);
+        do Memory.poke(memAddress +256, -1);
+        do Memory.poke(memAddress +288, -1);
+        do Memory.poke(memAddress +320, -1);
+        do Memory.poke(memAddress +352, -1);
+        do Memory.poke(memAddress +384, -1);
+        do Memory.poke(memAddress +416, -2);
+        do Memory.poke(memAddress +448, -2);
+        do Memory.poke(memAddress +480, -4);
+        do Memory.poke(memAddress +512, -4);
+        do Memory.poke(memAddress +544, -8);
+        do Memory.poke(memAddress +576, 32752);
+        do Memory.poke(memAddress +608, 8128);
+        // column 1
+        do Memory.poke(memAddress +97, 1);
+        do Memory.poke(memAddress +129, 1);
+        do Memory.poke(memAddress +161, 3);
+        do Memory.poke(memAddress +193, 3);
+        do Memory.poke(memAddress +225, 7);
+        do Memory.poke(memAddress +257, 7);
+        do Memory.poke(memAddress +289, 7);
+        do Memory.poke(memAddress +321, 7);
+        do Memory.poke(memAddress +353, 7);
+        do Memory.poke(memAddress +385, 7);
+        do Memory.poke(memAddress +417, 3);
+        do Memory.poke(memAddress +449, 3);
+        do Memory.poke(memAddress +481, 1);
+        do Memory.poke(memAddress +513, 1);
+        return;
+    }
+
+    method void remove(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        // column 0
+        do Memory.poke(memAddress, 0);
+        do Memory.poke(memAddress +32, 0);
+        do Memory.poke(memAddress +64, 0);
+        do Memory.poke(memAddress +96, 0);
+        do Memory.poke(memAddress +128, 0);
+        do Memory.poke(memAddress +160, 0);
+        do Memory.poke(memAddress +192, 0);
+        do Memory.poke(memAddress +224, 0);
+        do Memory.poke(memAddress +256, 0);
+        do Memory.poke(memAddress +288, 0);
+        do Memory.poke(memAddress +320, 0);
+        do Memory.poke(memAddress +352, 0);
+        do Memory.poke(memAddress +384, 0);
+        do Memory.poke(memAddress +416, 0);
+        do Memory.poke(memAddress +448, 0);
+        do Memory.poke(memAddress +480, 0);
+        do Memory.poke(memAddress +512, 0);
+        do Memory.poke(memAddress +544, 0);
+        do Memory.poke(memAddress +576, 0);
+        do Memory.poke(memAddress +608, 0);
+        // column 1
+        do Memory.poke(memAddress +97, 0);
+        do Memory.poke(memAddress +129, 0);
+        do Memory.poke(memAddress +161, 0);
+        do Memory.poke(memAddress +193, 0);
+        do Memory.poke(memAddress +225, 0);
+        do Memory.poke(memAddress +257, 0);
+        do Memory.poke(memAddress +289, 0);
+        do Memory.poke(memAddress +321, 0);
+        do Memory.poke(memAddress +353, 0);
+        do Memory.poke(memAddress +385, 0);
+        do Memory.poke(memAddress +417, 0);
+        do Memory.poke(memAddress +449, 0);
+        do Memory.poke(memAddress +481, 0);
+        do Memory.poke(memAddress +513, 0);
+        return;
+    }
+
+    method int gravity(int location, Array colorsB){
+        let colorsB[0] = Memory.peek(location + 641 + 16384);
+        let colorsB[1] = Memory.peek(location + 673 + 16384);
+        let colorsB[2] = Memory.peek(location + 705 + 16384);
+        if ((colorsB[0] + colorsB[1] + colorsB[2]) = 0){
+            do remove(location);
+            do draw(location + 64);
+            let location = location + 64;
+        }
+        return location;
+    }
+
+    method void move(){
+        if (orient = 1){
+            if (location - ((location / 32)*32) < 28){
+                do remove(location);
+                do draw(location + 1);
+                let location = location + 1;
+            }
+            else {
+                let orient = 0;
+            }
+        }
+        else{
+            if (location - ((location / 32)*32) > 0){
+                do remove(location);
+                do draw(location - 1);
+                let location = location - 1;
+            }
+            else{
+                let orient = 1;
+            }
+        }
+        return;
+    }
+
+    method bool isIDie(Character hero){
+        if (~(Memory.peek(location - 32 + 16384) = 0) | ~(Memory.peek(location - 64 + 16384) = 0)){
+            return true;
+        }
+        return false;
+    }
+}

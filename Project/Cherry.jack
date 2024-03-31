@@ -1,0 +1,77 @@
+class Cherry
+{
+    field int location;
+    field bool isEaten;
+
+    constructor Cherry new(int loc){
+        let location = loc;
+        let isEaten = false;
+		do drawCherry(loc);
+        return this;
+
+    }
+    method int getLocationCherry(){
+        return location;
+    }
+
+    method void drawCherry(int location) {
+	var int memAddress; 
+	let memAddress = 16384+location;
+	// column 0
+	do Memory.poke(memAddress +96, ~32767);
+	do Memory.poke(memAddress +128, -16384);
+	do Memory.poke(memAddress +160, -8192);
+	do Memory.poke(memAddress +192, -4096);
+	do Memory.poke(memAddress +224, 31744);
+	do Memory.poke(memAddress +256, 8176);
+	do Memory.poke(memAddress +288, 32764);
+	do Memory.poke(memAddress +320, -98);
+	do Memory.poke(memAddress +352, -114);
+	do Memory.poke(memAddress +384, -26);
+	do Memory.poke(memAddress +416, -2);
+	do Memory.poke(memAddress +448, -1);
+	do Memory.poke(memAddress +480, -1);
+	do Memory.poke(memAddress +512, -1);
+	do Memory.poke(memAddress +544, -1);
+	do Memory.poke(memAddress +576, -2);
+	do Memory.poke(memAddress +608, -8);
+	do Memory.poke(memAddress +640, -16400);
+	do Memory.poke(memAddress +672, 8128);
+	// column 1
+	do Memory.poke(memAddress +1, 504);
+	do Memory.poke(memAddress +33, 508);
+	do Memory.poke(memAddress +65, 479);
+	do Memory.poke(memAddress +97, 463);
+	do Memory.poke(memAddress +129, 455);
+	do Memory.poke(memAddress +161, 449);
+	do Memory.poke(memAddress +193, 224);
+	do Memory.poke(memAddress +225, 224);
+	do Memory.poke(memAddress +257, 2046);
+	do Memory.poke(memAddress +289, 4095);
+	do Memory.poke(memAddress +321, 4091);
+	do Memory.poke(memAddress +353, 8177);
+	do Memory.poke(memAddress +385, 16377);
+	do Memory.poke(memAddress +417, 16381);
+	do Memory.poke(memAddress +449, 16383);
+	do Memory.poke(memAddress +481, 16383);
+	do Memory.poke(memAddress +513, 16383);
+	do Memory.poke(memAddress +545, 16383);
+	do Memory.poke(memAddress +577, 16383);
+	do Memory.poke(memAddress +609, 8191);
+	do Memory.poke(memAddress +641, 8191);
+	do Memory.poke(memAddress +673, 2046);
+	return;
+    }
+
+    method bool checkCoords(Character hero)
+    {
+        var int heroCoords;
+		var bool isEaten;
+		let isEaten = false;
+        let heroCoords = hero.getLocation();
+        if ((location + 256) - heroCoords = 0){
+            let isEaten = true;
+        }
+        return isEaten;
+    }
+}

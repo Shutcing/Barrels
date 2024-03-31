@@ -1,0 +1,189 @@
+class Game{
+    field Board wall;
+    field Character hero;
+    field Array barrels;
+    field int bCount;
+
+    constructor Game new() {
+        var int j;
+        let j =0;
+        let hero = Character.new(6100);
+        let wall = Board.new();
+        let barrels = Array.new(10);
+        let bCount = 1;
+        while (j < bCount){
+            let barrels[j] = Barrel.new(10);
+            let j = j + 1;
+        }
+        return this;
+    }
+
+    method void dispose() {
+        do wall.dispose();
+        do hero.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void startGame() {
+        do wall.drawWall(); 
+        do wall.drawLadders();
+        do hero.display();
+        do goRight();
+        return;
+    }
+
+    method void goRight() {
+        var char key;
+        var boolean exit;
+        var int direction;
+        var Array colors;
+        var Array colorsB;
+        var Cherry cherry;
+        var int iteration;
+        var int globalIteration;
+        var Barrel b;
+        var int j;
+        let colors = Array.new(3);
+        let colorsB = Array.new(3);
+        let wall = Board.new();
+        let cherry = Cherry.new(0);
+        let iteration = 0;
+        let globalIteration = 0;
+
+
+
+        let exit = false;
+
+        while (~exit) {
+            while (key = 0) {
+                do wall.drawLadders();
+                do wall.drawWall(); 
+
+                let j = 0;
+                while (j < bCount) {
+                    let b = barrels[j];
+                    do b.setLocation(b.gravity(b.getLocation(), colorsB));
+                    do redefineColors2(colorsB, 641, 673, 705, b);
+                    if (sumArray(colorsB) > 0 | sumArray(colorsB) < 0 & (iteration > 20)){
+                        let globalIteration = globalIteration + 1;
+                        let iteration = 0;
+                        do b.move();
+                    }
+                    let j = j + 1;
+                    let iteration = iteration + 1;
+                    if (b.isIDie(hero) = true){
+                        let exit = true;
+                        let j = 100;
+                        do Output.moveCursor(10, 24);
+                        do Screen.clearScreen();
+                        do Output.printString("Mission Failed");
+                    }
+                }
+
+                do hero.setLocation(hero.gravity(hero.getLocation(), colors));
+                let direction = 0;
+                let key = Keyboard.keyPressed();
+                if (cherry.checkCoords(hero))
+                {
+                    let key = 81;
+                    do Output.moveCursor(10, 24);
+                    do Screen.clearScreen();
+                    do Output.printString("Mission Completed");
+                }
+
+                if ((globalIteration = (25 * bCount)) & (bCount < 9)){
+                    let globalIteration = 0;
+                    let barrels[bCount] = Barrel.new(10);
+                    let bCount = bCount + 1;
+                }
+            }
+
+            if (key = 81) {
+                let exit = true;
+            }
+
+             if (key = 130) {
+                do redefineColors(colors, 1506, 1538, 1570);
+                if (sumArray(colors) > 0 | sumArray(colors) < 0){
+                    let direction = 1;
+                }
+            }
+            if (key = 132) {
+                do redefineColors(colors, 1506, 1538, 1570);
+                if (sumArray(colors) > 0 | sumArray(colors) < 0){
+                    let direction = 2;
+                }
+            }
+
+            if (key = 131) {
+                do redefineColors(colors, 1538, 1570, 1570);
+                if (sumArray(colors) > 0 | sumArray(colors) < 0){
+                    let direction = 3;
+                }
+            }
+
+
+            while (~(key = 0)) {
+                if (cherry.checkCoords(hero))
+                {
+                    let key = 81;
+                }
+                do wall.drawLadders();
+                do wall.drawWall(); 
+
+                let j = 0;
+                while (j < bCount) {
+                    let b = barrels[j];
+                    do b.setLocation(b.gravity(b.getLocation(), colorsB));
+                    do redefineColors2(colorsB, 641, 673, 705, b);
+                    if (sumArray(colorsB) > 0 | sumArray(colorsB) < 0 & iteration > 25){
+                        let iteration = 0;
+                        do b.move();
+                        let globalIteration = globalIteration + 1;
+                    }
+                    let iteration = iteration + 1;
+                    let j = j + 1;
+                }
+
+                do hero.setLocation(hero.gravity(hero.getLocation(), colors));
+                let key = Keyboard.keyPressed();
+                do hero.move(direction);           
+                if (direction = 3) {
+                    if (hero.getOrient() = 1){
+                        let direction = 2;
+                    }
+                    else{
+                        let direction = 1;
+                    }
+                } 
+            }
+        }
+        return;
+    }
+
+    method void redefineColors(Array colors, int num1, int num2, int num3){
+        let colors[0] = Memory.peek(hero.getLocation() + num1 + 16384);
+        let colors[1] = Memory.peek(hero.getLocation() + num2 + 16384);
+        let colors[2] = Memory.peek(hero.getLocation() + num3 + 16384);
+        return;
+    }
+
+    method void redefineColors2(Array colors, int num1, int num2, int num3, Barrel b){
+        let colors[0] = Memory.peek(b.getLocation() + num1 + 16384);
+        let colors[1] = Memory.peek(b.getLocation() + num2 + 16384);
+        let colors[2] = Memory.peek(b.getLocation() + num3 + 16384);
+        return;
+    }
+
+    method int sumArray(Array arr){
+        var int i, sum;
+        let sum = 0;
+        let i = 0;
+        while (i < 3){
+            let sum = arr[i];
+            let i = i + 1;
+        }
+        return sum;
+    }
+}

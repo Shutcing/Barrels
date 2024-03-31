@@ -1,0 +1,22 @@
+class Break
+{
+    field int length;
+    field int width;
+    field int x;
+    field int y;
+
+    constructor Break new(int x1, int y1)
+    {
+        let length = 50;
+        let width = 5;
+        let x = x1;
+        let y = y1;
+        return this;
+    }
+    method void drawBreak()
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x+length, y+width);
+        return;
+        }
+}

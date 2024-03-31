@@ -1,0 +1,40 @@
+class Ladder
+{
+    field int x;
+    field int width;
+    field int y;
+    field int length;
+
+    constructor Ladder new(int x0, int y0)
+    {
+        let x = x0;
+        let width = 35;
+        let length = 50;
+        let y = y0;
+        return this;
+    }
+
+    method void drawLadder()
+    {
+            var int countStick;
+            var int stickY;
+            let stickY = y + 25;
+            let countStick = 2;
+            do Screen.setColor(true);
+            do Screen.drawLine(x, y, x, y - length);
+            do Screen.drawLine(x+1, y, x+1, y - length);
+            do Screen.drawLine(x + width, y, x + width, y - length);
+            do Screen.drawLine(x + width + 1, y, x + width + 1, y - length);
+            while ( countStick > 0)
+            {
+                do Screen.drawLine(x , stickY - (30 * countStick), x + width, stickY - (30 * countStick));
+                do Screen.drawLine(x , stickY - (30 * countStick)+1, x + width, stickY - (30 * countStick)+1);
+                do Screen.drawLine(x , stickY - (30 * countStick)-1, x + width, stickY - (30 * countStick)-1);
+                do Screen.drawLine(x , stickY - (30 * countStick)-2, x + width, stickY - (30 * countStick)-2);
+                let countStick = countStick - 1;
+            }
+            return;
+    }
+
+}
+

@@ -1,0 +1,85 @@
+class Board
+{
+    field Array breaks;
+    field Array ladders;
+    field int size;
+    field int countLadders;
+    field Array walls;
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+    constructor Board new()
+    {
+        let size = 29;
+        let breaks = Array.new(size);
+        // нижняя стена
+        let breaks[0] = Break.new(5,250);
+        let breaks[1] = Break.new(55,250);
+        let breaks[2] = Break.new(105,250);
+        let breaks[3] = Break.new(155,250);
+        let breaks[4] = Break.new(205,250);
+        let breaks[5] = Break.new(255,250);
+        let breaks[6] = Break.new(305,250);
+        let breaks[7] = Break.new(355,250);
+        let breaks[8] = Break.new(405,250);
+        let breaks[9] = Break.new(455,250);
+        // средняя стена
+        let breaks[10] = Break.new(455,160);
+        let breaks[11] = Break.new(55,160);
+        let breaks[12] = Break.new(105,160);
+        let breaks[13] = Break.new(155,160);
+        let breaks[14] = Break.new(205,160);
+        let breaks[15] = Break.new(255,160);
+        let breaks[16] = Break.new(305,160);
+        let breaks[17] = Break.new(355,160);
+        let breaks[18] = Break.new(405,160);
+        // верхняя стена
+        let breaks[19] = Break.new(5,70);
+        let breaks[20] = Break.new(55,70);
+        let breaks[21] = Break.new(105,70);
+        let breaks[22] = Break.new(155, 70);
+        let breaks[23] = Break.new(205, 70);
+        let breaks[24] = Break.new(255,70);
+        let breaks[25] = Break.new(305,70);
+        let breaks[26] = Break.new(355,70);
+        let breaks[27] = Break.new(155,70);
+        let breaks[28] = Break.new(205,70);
+        let countLadders = 2;
+        let ladders = Array.new(countLadders);
+        let ladders[0] = Ladder.new(150,215);
+        let ladders[1] = Ladder.new(330,125);
+        return this;
+    }
+
+    method void drawWall(){
+        var int indexBreak;
+        var Break break;
+        let indexBreak = 0;
+        //var Break break;
+        while ( size > indexBreak ){ 
+            let break = breaks[indexBreak];
+            do break.drawBreak();
+            let indexBreak = indexBreak + 1;
+        }
+        return;
+    }
+    method void drawLadders(){
+        var int indexLadder;
+        var Ladder ladder;
+        let indexLadder = 0;
+        //var Break break;
+        while ( countLadders > indexLadder ){ 
+            let ladder = ladders[indexLadder];
+            do ladder.drawLadder();
+            let indexLadder = indexLadder + 1;
+        }
+        return;
+    }
+}
+
+
+
+
