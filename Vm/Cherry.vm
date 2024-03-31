@@ -1,0 +1,313 @@
+function Cherry.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+push argument 0
+call Cherry.drawCherry 2
+pop temp 0
+push pointer 0
+return
+function Cherry.getLocationCherry 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Cherry.drawCherry 1
+push argument 0
+pop pointer 0
+push constant 16384
+push argument 1
+add
+pop local 0
+push local 0
+push constant 96
+add
+push constant 32767
+not
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 16384
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 8192
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 4096
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 31744
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 8176
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 32764
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 98
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 114
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 26
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 512
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 544
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 576
+add
+push constant 2
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 608
+add
+push constant 8
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 640
+add
+push constant 16400
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 672
+add
+push constant 8128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 504
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 508
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 479
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 463
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 455
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 161
+add
+push constant 449
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 193
+add
+push constant 224
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 225
+add
+push constant 224
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 257
+add
+push constant 2046
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 289
+add
+push constant 4095
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 321
+add
+push constant 4091
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 353
+add
+push constant 8177
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 385
+add
+push constant 16377
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 417
+add
+push constant 16381
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 449
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 481
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 513
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 545
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 577
+add
+push constant 16383
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 609
+add
+push constant 8191
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 641
+add
+push constant 8191
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 673
+add
+push constant 2046
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Cherry.checkCoords 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push argument 1
+call Character.getLocation 1
+pop local 0
+push this 0
+push constant 256
+add
+push local 0
+sub
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+pop local 1
+label IF_FALSE0
+push local 1
+return

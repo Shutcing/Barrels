@@ -1,0 +1,165 @@
+function Ladder.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 35
+pop this 1
+push constant 50
+pop this 3
+push argument 1
+pop this 2
+push pointer 0
+return
+function Ladder.drawLadder 2
+push argument 0
+pop pointer 0
+push this 2
+push constant 25
+add
+pop local 1
+push constant 2
+pop local 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 2
+push this 0
+push this 2
+push this 3
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push constant 1
+add
+push this 2
+push this 0
+push constant 1
+add
+push this 2
+push this 3
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+add
+push this 2
+push this 0
+push this 1
+add
+push this 2
+push this 3
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push this 1
+add
+push constant 1
+add
+push this 2
+push this 0
+push this 1
+add
+push constant 1
+add
+push this 2
+push this 3
+sub
+call Screen.drawLine 4
+pop temp 0
+label WHILE_EXP0
+push local 0
+push constant 0
+gt
+not
+if-goto WHILE_END0
+push this 0
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push this 0
+push this 1
+add
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 1
+add
+push this 0
+push this 1
+add
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 1
+add
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 1
+sub
+push this 0
+push this 1
+add
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 1
+sub
+call Screen.drawLine 4
+pop temp 0
+push this 0
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 2
+sub
+push this 0
+push this 1
+add
+push local 1
+push constant 30
+push local 0
+call Math.multiply 2
+sub
+push constant 2
+sub
+call Screen.drawLine 4
+pop temp 0
+push local 0
+push constant 1
+sub
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
